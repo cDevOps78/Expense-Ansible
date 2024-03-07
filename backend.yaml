@@ -4,37 +4,46 @@
   tasks: 
     - name: module disable default nodejs
       ansible.builtin.shell: dnf module disable nodejs -y
+    
     - name: module enable default nodejs
       ansible.builtin.shell: dnf module enable nodejs:20 -y
+    
     - name: Install nodejs 
       ansible.builtin.shell: dnf install nodejs -y
+    
     - name: Adding User
       ansible.builtin.user:
        name: expense    
+    
     - name: create directory
       ansible.builtin.file:
         path: /app
         state: directory
+    
     - name: Download backend content
       ansible.builtin.unarchive:
         src: https://expense-artifacts.s3.amazonaws.com/expense-backend-v2.zip 
         dest: /app
         remote_src: yes  
+    
     - name: npm install 
       ansible.builtin.shell: npm install
       args:
        chdir: /app
+    
     - name: copying backend.service file 
       ansible.builtin.copy: 
         src: backend.service
         dest: /etc/systemd/system/backend.service
+    
     - name: Install mysql
       ansible.builtin.shell: dnf install mysql -y
       became: true
       became_user: root
 
     - name: To load schema
-      ansible.builtin.shell:       
+      ansible.builtin.shell: mysql -h 172.31.38.0 -uroot -pExpenseApp@1 < /app/schema/backend.sql       
+    
     - name: To start backend
       ansible.builtin.systemd_service:
        state: restarted
