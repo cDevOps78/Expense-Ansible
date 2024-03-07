@@ -5,7 +5,7 @@
   - name: To install mysql
     ansible.builtin.dnf:
       name: dnf install mysql-server -y
-    became: true
+      became: true
   - name: To start mysql
     ansible.builtin.systemd_service:
        state: started
