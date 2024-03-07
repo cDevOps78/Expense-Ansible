@@ -6,7 +6,6 @@
     ansible.builtin.dnf:
       name:  mysql-server
       state: installed
-      became: yes 
   - name: To start mysql
     ansible.builtin.systemd_service:
        state: started
