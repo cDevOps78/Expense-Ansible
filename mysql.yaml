@@ -1,0 +1,14 @@
+---
+- name: Play-book to set-up backend
+  hosts: mysql
+  tasks:
+  - name: To install mysql
+    ansible.builtin.dnf:
+      name: dnf install mysql-server -y
+    became: true
+  - name: To start mysql
+    ansible.builtin.systemd_service:
+       state: started
+       enabled: true
+  - name: To set password for mysql
+    ansible.builtin.shell: mysql_secure_installation --set-root-pass ExpenseApp@1
