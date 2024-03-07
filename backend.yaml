@@ -48,5 +48,7 @@
        name: backend
        state: restarted
        enabled: true
-       daemon_reload: true                     
+       daemon_reload: true
+      tags:
+        - backend_service                      
      
