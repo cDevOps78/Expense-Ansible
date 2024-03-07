@@ -1,0 +1,26 @@
+- name: Play-Book to setup Frontend
+  tasks:
+  - name: Install nginx
+    ansible.builtin.dnf:
+     name: nginx
+     state: present
+  - name: Delete content of directory
+    ansible.builtin.shell: 
+       - rm -rf /usr/share/nginx/html/*    
+  - name: Download Frontend content 
+    ansible.builtin.get_url:
+      url: https://expense-artifacts.s3.amazonaws.com/expense-frontend-v2.zip
+      dest: /tmp/expense-frontend.zip
+  - name: unzip the content
+    ansible.builtin.unarchive:
+      src: /tmp/expense-frontend.zip
+      dest: /usr/share/nginx/html/
+      remote_src: yes
+  - name: Copying .conf file to /etc/nginx/default.d/expense.conf    
+    ansible.builtin.copy:
+      src: ./expense.conf
+      dest: /etc/nginx/default.d/expense.conf
+  - name: Starting nginx service       
+    ansible.builtin.service:
+      name: nginx
+      state: started
