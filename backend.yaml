@@ -40,10 +40,12 @@
       ansible.builtin.shell: dnf install mysql -y
 
     - name: To load schema
-      ansible.builtin.shell: mysql -h 172.31.38.0 -uroot -pExpenseApp@1 < /app/schema/backend.sql       
+      ansible.builtin.shell: mysql -h 172.31.38.0 -uroot -pExpenseApp@1 < /app/schema/backend.sql
+          
     
     - name: To start backend
       ansible.builtin.systemd_service:
+       name: backend
        state: restarted
        enabled: true
        daemon_reload: true                     
