@@ -8,6 +8,7 @@
       state: installed
   - name: To start mysql
     ansible.builtin.systemd_service:
+       name: mysqld
        state: started
        enabled: true
   - name: To set password for mysql

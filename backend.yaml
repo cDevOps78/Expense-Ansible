@@ -29,9 +29,12 @@
         src: backend.service
         dest: /etc/systemd/system/backend.service
     - name: Install mysql
-      ansible.builtin.shell: dnf install mysql -y 
+      ansible.builtin.shell: dnf install mysql -y
+      became: true
+      became_user: root
+
     - name: To load schema
-      ansible.builtin.shell:      
+      ansible.builtin.shell:       
     - name: To start backend
       ansible.builtin.systemd_service:
        state: restarted
