@@ -4,7 +4,9 @@
   tasks:
   - name: To install mysql
     ansible.builtin.dnf:
-      name: dnf install mysql-server -y
+      name:  mysql-server
+      state: installed
+    became: yes 
   - name: To start mysql
     ansible.builtin.systemd_service:
        state: started
