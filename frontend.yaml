@@ -20,6 +20,8 @@
     ansible.builtin.copy:
       src: ./expense.conf
       dest: /etc/nginx/default.d/expense.conf
+    tags:
+      - nginx  
   - name: Starting nginx service       
     ansible.builtin.service:
       name: nginx
