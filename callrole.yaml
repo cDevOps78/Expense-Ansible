@@ -1,0 +1,4 @@
+- name: This playbook is used to call role
+  hosts: frontend
+  roles:
+   - 
