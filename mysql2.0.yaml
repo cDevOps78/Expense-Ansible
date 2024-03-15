@@ -1,0 +1,21 @@
+---
+- name: Play-book to set-up backend
+  hosts: localhost
+  tasks:
+  - name: To install mysql
+    ansible.builtin.dnf:
+      name:  mysql-server
+      state: installed
+  - name: To start mysql
+    ansible.builtin.systemd_service:
+       name: mysqld
+       state: started
+       enabled: true
+  - name: to check
+    shell: echo 'show databases' |  mysql -h 172.31.44.100 -uroot -pExpenseApp@1
+    register: check
+  - name: To set password for mysql
+    ansible.builtin.shell: mysql_secure_installation --set-root-pass ExpenseApp@1 &>> /dev/null
+    when: check.rc == 1
+
+
