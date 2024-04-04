@@ -3,6 +3,13 @@
   become: yes
   vars:
     names: ['apple1','orange1','greeeen']
+    movies:
+       RRR:
+         - ramcharan-tej
+         - Ntr
+       Kantara:
+         - hero
+         - viliasdsdsd     
   tasks:
   # - name: To iterate loop
   #   ansible.builtin.debug:
@@ -24,4 +31,11 @@
   - name: complex loop2
     ansible.builtin.debug:
         msg: "this is {{ item[0] }}"       # a g o f 
-    loop: "{{ ['apple1','greeen','oranges','food'] | list }}"             
+    loop: "{{ ['apple1','greeen','oranges','food'] | list }}" 
+
+  - name: complex loop2
+    ansible.builtin.debug:
+        msg: "this is {{ item }}"
+    loop: "{{ movies['RRR']}}"      
+
+                 
