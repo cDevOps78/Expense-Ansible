@@ -19,4 +19,4 @@
   - name: To iterate loop2
     ansible.builtin.debug:
       msg: "{{ item }}"
-    loop: "{{ ['apple1','greeen','oranges','food'] }}"        
+    loop: "{{ ['apple1','greeen','oranges','food'] | list }}"        
