@@ -1,0 +1,11 @@
+- name: loop1
+  hosts: all
+  become: yes
+  tasks:
+  - name: To iterate loop
+    ansible.builtin.debug:
+      msg: "{{ item }}"
+    loop:
+    - name1
+    - name2
+    - name3   
