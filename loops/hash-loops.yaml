@@ -4,7 +4,7 @@
   tasks:
   - name: hash loops
     ansible.builtin.debug:
-        msg: "This name-{{ item.name }} & rollno-{{ rollno }}"
+        msg: "This name-{{ item.name }} & rollno-{{ item.rollno }}"
     loop:
     - { name: "testuser1", rollno: "301" }
     - { name: "testuser2", rollno: "302" }
