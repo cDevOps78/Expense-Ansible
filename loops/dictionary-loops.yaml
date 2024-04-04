@@ -5,7 +5,17 @@
       names:
         testuser1: 302
         testuser2: 302
-        testuser3: 303 
+        testuser3: 303
+      colleges:
+        students: 
+          student1: 101
+          student2: 202
+          student3: 203
+        teachers:
+          teacher1: 't101'
+          teacher2: 't202'
+          teacher3: 't303'
+
         
   tasks:
   - name: dictionary loops
@@ -21,4 +31,9 @@
   - name: dictionary loops
     ansible.builtin.debug:
         msg: "This is name-{{ item.key }} & rollno-{{ item.value }}"
-    loop: "{{ names | dict2items }}"        
+    loop: "{{ names | dict2items }}" 
+
+  - name: vars has multiple vars
+    ansible.builtin.debug:
+        msg: "This is student1-{{ item.key }} & studenno-{{ item.value }}"
+    loop: "{{ colleges['teachers'] | dict2items }}"              
