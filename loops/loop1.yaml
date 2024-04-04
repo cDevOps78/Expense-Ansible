@@ -1,6 +1,8 @@
 - name: loop1
   hosts: all
   become: yes
+  vars:
+    names: ['apple1','orange1','greeeen']
   tasks:
   - name: To iterate loop
     ansible.builtin.debug:
@@ -8,4 +10,8 @@
     loop:
     - name1
     - name2
-    - name3   
+    - name3  
+  - name: To iterate loop2
+    ansible.builtin.debug:
+      msg: "{{ item }}"
+    loop: "{{ names }}"   
