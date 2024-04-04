@@ -36,7 +36,7 @@
   - name: dictionary loops
     ansible.builtin.debug:
         msg: "This is name-{{ item.key }} & rollno-{{ item.value }}"
-    loop: "{{ {name1: 'geetha', name2: 'chaithnaya', name3: 'ramchshhshs'} | dict2items }}"      
+    loop: "{{ { 'name1': 'geetha', 'name2': 'chaithnaya', 'name3': 'ramchshhshs' } | dict2items }}"      
 
   
   
