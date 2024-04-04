@@ -1,0 +1,13 @@
+- name: loop1
+  hosts: all
+  become: yes
+  tasks:
+  - name: dictionary loops
+    ansible.builtin.debug:
+        msg: "This is name-{{ item.key }} & rollno-{{ item.value }}"
+    loop: "{{ dict_tag | dict2items }}"
+    vars:
+        dict_tag:
+          testuser1: 302
+          testuser2: 302
+          testuser3: 303
