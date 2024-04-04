@@ -33,6 +33,13 @@
         msg: "This is name-{{ item.key }} & rollno-{{ item.value }}"
     loop: "{{ names | dict2items }}" 
 
+  - name: dictionary loops
+    ansible.builtin.debug:
+        msg: "This is name-{{ item.key }} & rollno-{{ item.value }}"
+    loop: "{{ {name1: 'geetha', name2: 'chaithnaya', name2: 'ramchshhshs'} }} | dict2items "      
+
+  
+  
   - name: vars has multiple vars
     ansible.builtin.debug:
         msg: "This is student1-{{ item.key }} & studenno-{{ item.value }}"
