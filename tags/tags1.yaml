@@ -15,4 +15,4 @@
     debug:
         msg: "Yes task error got failed this is msg 2"      
     tags: ["chaitu1","chaitu"] 
-    when: out.failed is true   
+    when: out.failed is false
