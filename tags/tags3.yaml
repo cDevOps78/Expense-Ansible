@@ -6,7 +6,7 @@
       msg: This is task1
 
   - name: Shell-task1
-    shell: exit 1
+    shell: exit 0
     ignore_errors: true 
     register: output
 
