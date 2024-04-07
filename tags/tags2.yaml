@@ -4,4 +4,4 @@
   - name: This is Printing Purpose
     debug:
         msg: "This is my name-{{ item }}"
-    loop: "{{ names }}"    
+    loop: "{{ [ 'hello1','hello2','hello4','hello3' ] }}"    
