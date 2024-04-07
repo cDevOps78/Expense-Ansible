@@ -3,4 +3,5 @@
   tasks:
   - name: This is Printing Purpose
     debug:
-        msg: "This is my name-{{ name }}"
+        msg: "This is my name-{{ item }}"
+    loop: "{{ names }}"    
