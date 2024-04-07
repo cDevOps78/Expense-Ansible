@@ -4,7 +4,10 @@
   - name: Task1
     debug:
         msg: "this is task1"
-    tags: chaitu    
+    tags: chaitu   
+
+  - name: Task error
+    shell: exit 1   
 
   - name: Task2
     debug:
