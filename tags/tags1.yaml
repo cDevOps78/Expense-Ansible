@@ -13,6 +13,5 @@
 
   - name: Task2
     debug:
-        msg: "Yes task error got failed this is msg 2"      
+        msg: "Task Error: {{ 'Failure' if out.failed is true  else 'Success' }}"      
     tags: ["chaitu1","chaitu"] 
-    when: out.failed is false
