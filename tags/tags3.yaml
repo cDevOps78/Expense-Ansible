@@ -10,6 +10,9 @@
     ignore_errors: true 
     register: output
 
-  - name: fail the play if previous task is failed 
-    debug: msg="the previous task if failed"
-    when: output.failed is true    
+  - name: output debug
+    debug: msg="{{ output }}"  
+
+  # - name: fail the play if previous task is failed 
+  #   debug: msg="the previous task if failed"
+  #   when: output.failed is true    
