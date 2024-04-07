@@ -1,6 +1,3 @@
-- name: To Practice tags
-  hosts: localhost
-  tasks:
   - name: task-1
     debug:
         msg: "This is my name-{{ item }}"
