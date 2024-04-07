@@ -2,7 +2,8 @@
   hosts: localhost
   tasks:
   - name: Task1
-    msg: This is task1
+    debug:
+      msg: This is task1
 
   - name: Shell-task1
     shell: exit 1
