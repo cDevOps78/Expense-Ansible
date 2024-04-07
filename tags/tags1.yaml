@@ -1,0 +1,10 @@
+- name: To Practice tags
+  hosts: localhost
+  tasks:
+  - name: Task1
+    debug:
+        msg: "this is task1"
+
+  - name: Task2
+    debug:
+        msg: "this is task2"      
