@@ -4,6 +4,7 @@
   - name: Task1
     debug:
         msg: "this is task1"
+    tags: chaitu    
 
   - name: Task2
     debug:
