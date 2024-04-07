@@ -1,0 +1,6 @@
+- name: To Practice tags
+  hosts: localhost
+  tasks:
+  - name: Run a tasks from different play
+    include_tasks: tags2.yaml
+    loop: "{{ [ 'RRR','Kantara','Goat-life','charleee' ] }}"

@@ -1,7 +1,9 @@
 - name: To Practice tags
   hosts: localhost
   tasks:
-  - name: This is Printing Purpose
+  - name: task-1
     debug:
         msg: "This is my name-{{ item }}"
-    loop: "{{ names }}"
+  - name: task-2
+    debug:
+        msg: "This is movie name-{{ item }}"
