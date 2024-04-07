@@ -3,4 +3,4 @@
   tasks:
   - name: Run a tasks from different play
     include_tasks: tags2.yaml
-    loop: "{{ [ 'RRR','Kantara','Goat-life','charleee' ] }}"
+    loop: "{{ {movie1: 'RRR',movie2: 'Yogi'} | dict2items }}"
