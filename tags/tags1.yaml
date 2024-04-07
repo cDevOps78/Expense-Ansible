@@ -7,7 +7,8 @@
     tags: chaitu   
 
   - name: Task error
-    shell: exit 1   
+    shell: exit 1 
+    ignore_errors: true  
 
   - name: Task2
     debug:
