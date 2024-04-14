@@ -14,15 +14,13 @@
   #   debug: 
   #     msg: "{{ (lookup('file', './file1.json') | from_json) | combine(lookup('file','./file2.json') | from_json)}}" 
   
-  - name: looping
-    debug:
-      msg: "{{ item.name }} -- {{ item.rool }}"
-    loop: "{{ names }}"  
-    vars:
-      names: 
-      - { name: "chaitu1", rool: 304 } 
-      - { name: "chaitu1", rool: 304 } 
-      - { name: "chaitu1", rool: 304 } 
+    - name: Map attribute
+      debug:
+        msg: "{{ names | map(attribute='movie') }}"
+      vars:
+        names:
+          movie: 'RRR'
+          movie1: 'Kantara'  
    
 
 
