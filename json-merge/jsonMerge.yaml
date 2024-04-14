@@ -4,7 +4,7 @@
   tasks:
   - name: Merge two json datas
     set_fact: 
-    hop: "{{ { 'name1': 'chaitu1' } | combine({'name2': 'chaitu2'}) }}"
+      hop: "{{ { 'name1': 'chaitu1' } | combine({'name2': 'chaitu2'}) }}"
 
   - name: print
     debug: 
