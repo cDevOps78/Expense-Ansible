@@ -1,0 +1,7 @@
+- name: Playbook to combine to json datas
+  hosts: localhost
+  vars:
+  tasks:
+  - name: Merge two json datas
+    set_fact: "{{ lookup(./file1.json) | combin(lookup(./file1.json)) }}"
+    
