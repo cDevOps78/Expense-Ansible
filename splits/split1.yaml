@@ -13,6 +13,6 @@
    
    - name: split3
      debug:
-       msg: "{{ item | split('@') }}"
+       msg: "{{ item | split('@') | flatten }}"
      loop: "{{emails}}"  
   
