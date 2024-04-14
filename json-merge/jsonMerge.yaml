@@ -10,4 +10,8 @@
     debug: 
       var: hop 
 
+  - name: lookup
+    debug:
+      msg: "{{ lookup('file', 'file1.json') }}"    
+
     
