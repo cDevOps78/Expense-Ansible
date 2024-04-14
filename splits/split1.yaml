@@ -1,0 +1,10 @@
+- name: working split functions
+  hosts: localhost
+  tasks:
+   - name: split1
+     debug:
+       msg: "{{ 'chaithanya is a bad boy' | split }}"
+   - name: split2
+     debug:
+       msg: "{{ item | split('@') | last }}"
+     loop: "{{ ['chaitu@123','ram@gmail.com', 'haapy@gmail.com'] }}"
