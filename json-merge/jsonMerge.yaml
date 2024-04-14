@@ -12,7 +12,7 @@
 
   - name: print
     debug: 
-      msg: "{{ (lookup('file', './file1.json') | from_json) | combine(lookup('file','./file2.json'))}}"    
+      msg: "{{ (lookup('file', './file1.json') | from_json) | combine(lookup('file','./file2.json') | from_json)}}"    
 
 
 
