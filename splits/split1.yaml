@@ -1,18 +1,21 @@
 - name: working split functions
   hosts: localhost
   vars:
-   emails: ['chaitu@123','ram@gmail.com', 'haapy@gmail.com']
+   emails: [ ['chaitu@123','chaitu1@123'],['ram@gmail.com','kkdkdk@gmail.com'], ['haapy@gmail.com'] ]
   tasks:
-   - name: split1
-     debug:
-       msg: "{{ 'chaithanya is a bad boy' | split }}"
-   - name: split2
-     debug:
-       msg: "{{ item | split('@') | first }}"
-     loop: "{{ ['chaitu@123','ram@gmail.com', 'haapy@gmail.com'] }}"
+  #  - name: split1
+  #    debug:
+  #      msg: "{{ 'chaithanya is a bad boy' | split }}"
+  #  - name: split2
+  #    debug:
+  #      msg: "{{ item | split('@') | first }}"
+  #    loop: "{{ ['chaitu@123','ram@gmail.com', 'haapy@gmail.com'] }}"
    
-   - name: split3
-     debug:
-       msg: "{{ item | split('@') | flatten }}"
-     loop: "{{emails}}"  
+  #  - name: split3
+  #    debug:
+  #      msg: "{{ item | split('@') | flatten }}"
+  #    loop: "{{emails}}"  
+  - name: list of list
+    debug:
+      msg: "{{ emails }}"
   
