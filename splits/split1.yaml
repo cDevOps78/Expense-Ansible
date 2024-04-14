@@ -6,5 +6,5 @@
        msg: "{{ 'chaithanya is a bad boy' | split }}"
    - name: split2
      debug:
-       msg: "{{ item | split('@') | last }}"
+       msg: "{{ item | split('@') | first }}"
      loop: "{{ ['chaitu@123','ram@gmail.com', 'haapy@gmail.com'] }}"
