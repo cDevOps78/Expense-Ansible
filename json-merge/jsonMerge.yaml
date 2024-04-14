@@ -2,16 +2,18 @@
   hosts: localhost
   vars:
   tasks:
-  - name: Merge two json datas
-    set_fact: 
-      hop: "{{ { 'name1': 'chaitu1', 'name4': 'goood' } | combine({'name2': 'chaitu2'}) }}"
+  # - name: Merge two json datas
+  #   set_fact: 
+  #     hop: "{{ { 'name1': 'chaitu1', 'name4': 'goood' } | combine({'name2': 'chaitu2'}) }}"
 
   - name: print
     debug: 
-      var: hop 
+      msg: "{{ lookup('file', './file1.json') }}"
 
-  - name: lookup
-    debug:
-      msg: "{{ lookup('file', 'file1.json') | to_yaml(indent=4) }}"    
+  - name: print
+    debug: 
+      msg: "{{ lookup('file', './file1.json') | from_json }}"    
+
+
 
     
