@@ -16,7 +16,7 @@
   
     - name: Map attribute
       debug:
-        msg: "{{ names | map(attribute='movie') }}"
+        msg: "{{ names }}"
       vars:
         names:
           movie: 'RRR'
