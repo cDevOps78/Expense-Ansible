@@ -6,7 +6,8 @@
     set_fact: 
     hop: "{{ { 'name1': 'chaitu1' } | combine({'name2': 'chaitu2'}) }}"
 
-  - name: print 
-    var: hop 
+  - name: print
+    debug: 
+      var: hop 
 
     
