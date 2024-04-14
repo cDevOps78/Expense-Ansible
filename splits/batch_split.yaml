@@ -1,0 +1,16 @@
+---
+- name: Splitting Lists
+  hosts: localhost
+  vars:
+    number_list: [1,2,3,4,5,6,7]
+  tasks:
+    - name: Split List into Groups of Three
+      set_fact:
+        grouped_numbers: "{{ number_list | batch(3) }}"
+    - debug:
+        msg: "{{ grouped_numbers }}"
+    - debug:
+        msg: "{{ grouped_numbers | flatten }}"
+    - debug:
+        msg: "{{ number_list }}"
+
