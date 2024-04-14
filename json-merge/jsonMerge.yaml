@@ -12,6 +12,6 @@
 
   - name: lookup
     debug:
-      msg: "{{ lookup('file', 'file1.json') | combine(lookup('file', 'file1.json')) }}"    
+      msg: "{{ lookup('file', 'file1.json') | to_yaml }}"    
 
     
