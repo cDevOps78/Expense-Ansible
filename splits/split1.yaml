@@ -17,11 +17,16 @@
   #    loop: "{{emails}}"  
 
   #---How to flatten for nested list --#
-  - name: list of list
-    debug:
-      msg: "{{ emails }}"
+  # - name: list of list
+  #   debug:
+  #     msg: "{{ emails }}"
 
-  - name: list of list
-    debug:
-      msg: "{{ emails | flatten }}"    
+  # - name: list of list
+  #   debug:
+  #     msg: "{{ emails | flatten }}"   
+
+  - name: split with file
+    debug: 
+        msg: "{{ item }}"
+    loop: "{{ lookup('file', '/etc/passwd')}}"         
   
