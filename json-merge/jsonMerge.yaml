@@ -3,5 +3,5 @@
   vars:
   tasks:
   - name: Merge two json datas
-    set_fact: "{{ lookup('file', './file1.json') | combin(lookup('file', './file1.json')) }}"
+    set_fact: "{{ lookup('file', './file1.json') | combine(lookup('file', './file1.json')) }}"
     
