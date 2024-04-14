@@ -14,7 +14,7 @@
   #   debug: 
   #     msg: "{{ (lookup('file', './file1.json') | from_json) | combine(lookup('file','./file2.json') | from_json)}}" 
     - name: Show value of 'variablename'
-      ansible.builtin.debug: msg="{{ lookup('ansible.builtin.vars', 'name') }}"
+      ansible.builtin.debug: msg="{{ lookup('ansible.builtin.vars', 'name['myvar']') }}"
       vars:
        name:
         variablename: hello
