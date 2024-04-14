@@ -16,7 +16,7 @@
   
     - name: Map attribute
       debug:
-        msg: "{{ names |  map(attribute='movie') }}"
+        msg: "{{ ( names | to_yaml ) | map(attribute='movie') }}"
       vars:
         names:
           movie: 'RRR'
