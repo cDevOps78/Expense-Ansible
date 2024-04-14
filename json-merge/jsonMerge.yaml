@@ -16,13 +16,13 @@
   
   - name: looping
     debug:
-      msg: "{{ item.name -- item.rool }}"
+      msg: "{{ item.name }} -- {{ item.rool }}"
     loop: "{{ names }}"  
     vars:
       names: 
-      - { name: "chaitu1", rool: '304' } 
-      - { name: "chaitu1", rool: '304' } 
-      - { name: "chaitu1", rool: '304' } 
+      - { name: "chaitu1", rool: 304 } 
+      - { name: "chaitu1", rool: 304 } 
+      - { name: "chaitu1", rool: 304 } 
    
 
 
