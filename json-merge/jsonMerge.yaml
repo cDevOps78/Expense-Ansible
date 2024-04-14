@@ -13,12 +13,17 @@
   # - name: print
   #   debug: 
   #     msg: "{{ (lookup('file', './file1.json') | from_json) | combine(lookup('file','./file2.json') | from_json)}}" 
-    - name: Show value of 'variablename'
-      ansible.builtin.debug: msg="{{ lookup('ansible.builtin.vars', 'name') }}"
-      vars:
-       name:
-        variablename: hello
-        myvar: chaitu  
+  
+  - name: looping
+    debug:
+      msg: "{{ item.name -- item.rool }}"
+    loop: "{{ names }}"  
+    vars:
+      names: 
+      - { name: "chaitu1", rool: '304' } 
+      - { name: "chaitu1", rool: '304' } 
+      - { name: "chaitu1", rool: '304' } 
+   
 
 
 
