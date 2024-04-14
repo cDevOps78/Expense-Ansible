@@ -1,5 +1,7 @@
 - name: working split functions
   hosts: localhost
+  vars:
+   emails: ['chaitu@123','ram@gmail.com', 'haapy@gmail.com']
   tasks:
    - name: split1
      debug:
@@ -8,3 +10,8 @@
      debug:
        msg: "{{ item | split('@') | first }}"
      loop: "{{ ['chaitu@123','ram@gmail.com', 'haapy@gmail.com'] }}"
+   
+   - name: split3
+     debug:
+       msg: "{{ emails }}"
+  
