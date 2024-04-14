@@ -25,8 +25,12 @@
   #   debug:
   #     msg: "{{ emails | flatten }}"   
 
+ #  https://www.howtouselinux.com/post/ansible-selectattr#selectattr_vs_map_filter_in_Ansible
+
   - name: split with file
-    debug: 
-        msg: "{{ item }}"
-    loop: "{{ lookup('file', '/etc/passwd') | split('\n') }}"         
+    set_fact: 
+        name: "{{ item  }}"
+    loop: "{{ lookup('file', '/etc/passwd') | split('\n') }}"
+
+  - name:            
   
