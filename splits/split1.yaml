@@ -28,5 +28,5 @@
   - name: split with file
     debug: 
         msg: "{{ item }}"
-    loop: "{{ lookup('file', '/etc/passwd')}}"         
+    loop: "{{ lookup('file', '/etc/passwd') }}"         
   
