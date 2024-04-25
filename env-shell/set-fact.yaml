@@ -1,7 +1,7 @@
 - name: Ansible to read shell env varibales
   hosts: localhost
   vars_files:
-  - [ "variables.yaml" ]
+  - variables.yaml
   tasks:
   - name: to read Name shell varibales
     ansible.builtin.debug: 
