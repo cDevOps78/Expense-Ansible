@@ -1,0 +1,10 @@
+- name: Ansible to read shell env varibales
+  hosts: localhost
+  tasks:
+  - name: set-fact1
+    ansible.builtin.set_fact:
+       fact1: "{{ lookup('ansible.builtin.env', 'Name1') }}"
+       fact2: "{{ lookup('ansible.builtin.env', 'Name2') }}"
+  - name: to read Name shell varibales
+    ansible.builtin.debug: 
+        msg: "My name1- {{ fact1 }} \n My name2- {{ fact2 }}"         
