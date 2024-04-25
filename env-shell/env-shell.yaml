@@ -1,0 +1,6 @@
+- name: Ansible to read shell env varibales
+  hosts: localhost
+  tasks:
+  - name: to read Name shell varibales
+    ansible.builtin.shell: 
+        msg: "my Name is- {{ lookup('ansible.builtin.env', 'Name') }}"
