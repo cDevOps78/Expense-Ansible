@@ -1,6 +1,7 @@
 - name: Ansible to read shell env varibales
   hosts: localhost
-  var_files: ['variables.yaml']
+  var_files: 
+     ./variables.yaml
   tasks:
   # - name: set-fact1
   #   ansible.builtin.set_fact:
