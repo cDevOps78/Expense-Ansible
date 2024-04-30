@@ -24,6 +24,7 @@
       ansible.builtin.shell: ./config.sh  --unattended  --url  https://github.com/ActionsRoboshop --name workstaion --labels chaitu1 --token ${{ token }}
       args:
         chdir: /home/ec2-user/actions-runner
+      become_user: ec2-user
 
     - name: To start the runner service
       ansible.builtin.shell: ./svc.sh install ; svc.sh start
