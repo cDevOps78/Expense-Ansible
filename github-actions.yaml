@@ -8,7 +8,7 @@
       become_user: ec2-user
 
     - name: Download the latest runner package
-      ansible.builtin.archive:
+      ansible.builtin.unarchive:
           src: https://github.com/actions/runner/releases/download/v2.316.0/actions-runner-linux-x64-2.316.0.tar.gz
           dest: /home/ec2-user/actions-runner/
           remote_src: true
