@@ -23,6 +23,7 @@
       ansible.builtin.shell: ./config.sh remove
       args:
         chdir: /home/ec2-user/actions-runner
+      become_user: ec2-user
 
 
     - name: set up configuration fo runner
