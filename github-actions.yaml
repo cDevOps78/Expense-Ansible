@@ -21,7 +21,7 @@
 
 
     - name: set up configuration fo runner
-      ansible.builtin.shell: ./config.sh  --unattended  --url  https://github.com/ActionsRoboshop --name workstaion --labels chaitu1 --token {{ token }}
+      ansible.builtin.shell: ./config.sh  --unattended  --url  https://github.com/ActionsRoboshop --name workstaion --labels chaitu1 --token {{ token }} --replace
       args:
         chdir: /home/ec2-user/actions-runner
       become_user: ec2-user
