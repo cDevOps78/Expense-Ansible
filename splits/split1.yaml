@@ -1,0 +1,36 @@
+- name: working split functions
+  hosts: localhost
+  vars:
+   emails: [ ['chaitu@123','chaitu1@123'],['ram@gmail.com','kkdkdk@gmail.com'], ['haapy@gmail.com'] ]
+  tasks:
+  #  - name: split1
+  #    debug:
+  #      msg: "{{ 'chaithanya is a bad boy' | split }}"
+  #  - name: split2
+  #    debug:
+  #      msg: "{{ item | split('@') | first }}"
+  #    loop: "{{ ['chaitu@123','ram@gmail.com', 'haapy@gmail.com'] }}"
+   
+  #  - name: split3
+  #    debug:
+  #      msg: "{{ item | split('@') | flatten }}"
+  #    loop: "{{emails}}"  
+
+  #---How to flatten for nested list --#
+  # - name: list of list
+  #   debug:
+  #     msg: "{{ emails }}"
+
+  # - name: list of list
+  #   debug:
+  #     msg: "{{ emails | flatten }}"   
+
+ #  https://www.howtouselinux.com/post/ansible-selectattr#selectattr_vs_map_filter_in_Ansible
+
+  - name: split with file
+    set_fact: 
+        name: "{{ item  }}"
+    loop: "{{ lookup('file', '/etc/passwd') | split('\n') }}"
+
+  - name:            
+  

@@ -1,0 +1,22 @@
+- name: loop1
+  hosts: all
+  become: yes
+  vars:
+    names:
+    - { name: "testuser1", rollno: "301" }
+    - { name: "testuser2", rollno: "302" }
+    - { name: "testuser3", rollno: "303" }
+
+  tasks:
+  - name: hash loops
+    ansible.builtin.debug:
+        msg: "This name-{{ item.name }} & rollno-{{ item.rollno }}"
+    loop:
+    - { name: "testuser1", rollno: "301" }
+    - { name: "testuser2", rollno: "302" }
+    - { name: "testuser3", rollno: "303" }   
+
+  - name: hash loops
+    ansible.builtin.debug:
+        msg: "This name-{{ item.name }} & rollno-{{ item.rollno }}"
+    loop: "{{ names }}"       

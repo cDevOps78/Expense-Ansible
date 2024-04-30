@@ -1,0 +1,46 @@
+- name: loop1
+  hosts: all
+  become: yes
+  vars:
+      names:
+        testuser1: 302
+        testuser2: 302
+        testuser3: 303
+      colleges:
+        students: 
+          student1: 101
+          student2: 202
+          student3: 203
+        teachers:
+          teacher1: 't101'
+          teacher2: 't202'
+          teacher3: 't303'
+
+        
+  tasks:
+  - name: dictionary loops
+    ansible.builtin.debug:
+        msg: "This is name-{{ item.key }} & rollno-{{ item.value }}"
+    loop: "{{ dict_tag | dict2items }}"
+    vars:
+        dict_tag:
+          testuser1: 302
+          testuser2: 302
+          testuser3: 303
+
+  - name: dictionary loops
+    ansible.builtin.debug:
+        msg: "This is name-{{ item.key }} & rollno-{{ item.value }}"
+    loop: "{{ names | dict2items }}" 
+
+  - name: dictionary loops
+    ansible.builtin.debug:
+        msg: "This is name-{{ item.key }} & rollno-{{ item.value }}"
+    loop: "{{ { 'name1': 'geetha', 'name2': 'chaithnaya', 'name3': 'ramchshhshs' } | dict2items }}"      
+
+  
+  
+  - name: vars has multiple vars
+    ansible.builtin.debug:
+        msg: "This is student1-{{ item.key }} & studenno-{{ item.value }}"
+    loop: "{{ colleges['teachers'] | dict2items }}"              

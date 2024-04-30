@@ -1,0 +1,41 @@
+- name: loop1
+  hosts: all
+  become: yes
+  vars:
+    names: ['apple1','orange1','greeeen']
+    movies:
+       RRR:
+         - ramcharan-tej
+         - Ntr
+       Kantara:
+         - hero
+         - viliasdsdsd     
+  tasks:
+  # - name: To iterate loop
+  #   ansible.builtin.debug:
+  #     msg: "{{ item }}"
+  #   loop:
+  #   - name1
+  #   - name2
+  #   - name3  
+  # - name: To iterate loop2
+  #   ansible.builtin.debug:
+  #     msg: "{{ item }}"
+  #   loop: "{{ names }}"
+
+  - name: To iterate loop2
+    ansible.builtin.debug:
+      msg: "{{ item }}"
+    loop: "{{ ['apple1','greeen','oranges','food'] | list }}" #   "{{ ['apple1','greeen','oranges','food'] }}"
+
+  - name: complex loop2
+    ansible.builtin.debug:
+        msg: "this is {{ item[0] }}"       # a g o f 
+    loop: "{{ ['apple1','greeen','oranges','food'] | list }}" 
+
+  - name: complex loop2
+    ansible.builtin.debug:
+        msg: "this is {{ item }}"
+    loop: "{{ movies['RRR']}}"      
+
+                 

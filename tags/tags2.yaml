@@ -1,0 +1,6 @@
+  - name: task-1
+    debug:
+        msg: "This is my name-{{ item.key }}-{{ item.value }}"
+  - name: task-2
+    debug:
+        msg: "This is movie name-{{ item.key }}-{{ item.value }}"

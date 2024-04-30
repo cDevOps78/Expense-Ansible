@@ -1,0 +1,17 @@
+- name: To Practice tags
+  hosts: localhost
+  tasks:
+  - name: Task1
+    debug:
+        msg: "this is task1"
+    tags: chaitu   
+
+  - name: Task error
+    shell: exit 0 
+    ignore_errors: true 
+    register: out 
+
+  - name: Task2
+    debug:
+        msg: "Task Error: {{ 'Failure' if out.failed is true  else 'Success' }}"      
+    tags: ["chaitu1","chaitu"] 

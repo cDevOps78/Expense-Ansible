@@ -1,0 +1,8 @@
+- name: Ansible to read shell env varibales
+  hosts: localhost
+  vars_files:
+  - variables.yaml
+  tasks:
+  - name: to read Name shell varibales
+    ansible.builtin.debug: 
+        msg: "My name1- {{ fact1 }} \n My name2- {{ fact2 }}"         
