@@ -19,12 +19,13 @@
         name: libicu
         state: installed
 
+
     - name: set up configuration fo runner
-      ansible.builtin.shell: config.sh  --unattended  --url  https://github.com/ActionsRoboshop --name workstaion --labels chaitu1 --token ${{ token }}
+      ansible.builtin.shell: ./config.sh  --unattended  --url  https://github.com/ActionsRoboshop --name workstaion --labels chaitu1 --token ${{ token }}
       args:
         chdir: /home/ec2-user/actions-runner
 
     - name: To start the runner service
-      ansible.builtin.shell: svc.sh install ; svc.sh start
+      ansible.builtin.shell: ./svc.sh install ; svc.sh start
       args:
          chdir: /home/ec2-user/actions-runner/
