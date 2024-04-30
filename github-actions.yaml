@@ -25,10 +25,11 @@
         chdir: /home/ec2-user/actions-runner
 
     - name: remove runner
-      ansible.builtin.shell: ./config.sh remove --name workstation --token {{ token }}
+      ansible.builtin.shell: ./config.sh remove  --token {{ token }}
       args:
         chdir: /home/ec2-user/actions-runner/
       become_user: ec2-user
+      ignore_errors: true
 
 
     - name: set up configuration fo runner
