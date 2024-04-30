@@ -3,7 +3,7 @@
   tasks:
     - name: To get the token form vault
       ansible.builtin.set_fact:
-       my_secrets: "{{ lookup('community.hashi_vault.hashi_vault', 'ci-server/data/runner-token', token={{ vault_token }}, url='https://172.31.38.7:8200', validate_certs=false) }}"
+       my_secrets: "{{ lookup('community.hashi_vault.hashi_vault', 'ci-server/data/runner-token, token={{ vault_token }}, url=https://172.31.38.7:8200, validate_certs=false, return_format=values') }}"
 
     - name: msg
       debug:
