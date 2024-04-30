@@ -3,50 +3,50 @@
   tasks:
     - name: To get the token form vault
       ansible.builtin.set_fact:
-       my_secrets: "{{ lookup('community.hashi_vault.hashi_vault', 'ci-server/data/runner-token token={{ vault_token }} url=https://172.31.38.7:8200  validate_certs=false return_format=values') }}"
+       runner_token: "{{ lookup('community.hashi_vault.hashi_vault', 'ci-server/data/runner-token token={{ vault_token }} url=https://172.31.38.7:8200  validate_certs=false return_format=values') }}"
 
-    - name: msg
-      debug:
-        msg: "token = {{ my_secrets }}"
+#    - name: msg
+#      debug:
+#        msg: "token = {{ my_secrets }}"
 
-#    - name: To create a folder
-#      ansible.builtin.file:
-#        name: /home/ec2-user/actions-runner
-#        state: directory
-#      become_user: ec2-user
-#
-#    - name: Download the latest runner package
-#      ansible.builtin.unarchive:
-#          src: https://github.com/actions/runner/releases/download/v2.316.0/actions-runner-linux-x64-2.316.0.tar.gz
-#          dest: /home/ec2-user/actions-runner/
-#          remote_src: true
-#      become_user: ec2-user
-#
-#    - name: install dotnet package for runner
-#      ansible.builtin.dnf:
-#        name: libicu
-#        state: installed
-#
-#    - name: uninstall the service
-#      ansible.builtin.shell: ./svc.sh uninstall
-#      args:
-#        chdir: /home/ec2-user/actions-runner
-#
-#    - name: remove runner
-#      ansible.builtin.shell: ./config.sh remove  --token {{ token }}
-#      args:
-#        chdir: /home/ec2-user/actions-runner/
-#      become_user: ec2-user
-#      ignore_errors: yes
-#
-#
-#    - name: set up configuration fo runner
-#      ansible.builtin.shell: ./config.sh  --unattended  --url  https://github.com/ActionsRoboshop --name workstaion --labels chaitu1 --token {{ token }}
-#      args:
-#        chdir: /home/ec2-user/actions-runner
-#      become_user: ec2-user
-#
-#    - name: To start the runner service
-#      ansible.builtin.shell: ./svc.sh install ; ./svc.sh start
-#      args:
-#         chdir: /home/ec2-user/actions-runner/
+    - name: To create a folder
+      ansible.builtin.file:
+        name: /home/ec2-user/actions-runner
+        state: directory
+      become_user: ec2-user
+
+    - name: Download the latest runner package
+      ansible.builtin.unarchive:
+          src: https://github.com/actions/runner/releases/download/v2.316.0/actions-runner-linux-x64-2.316.0.tar.gz
+          dest: /home/ec2-user/actions-runner/
+          remote_src: true
+      become_user: ec2-user
+
+    - name: install dotnet package for runner
+      ansible.builtin.dnf:
+        name: libicu
+        state: installed
+
+    - name: uninstall the service
+      ansible.builtin.shell: ./svc.sh uninstall
+      args:
+        chdir: /home/ec2-user/actions-runner
+
+    - name: remove runner
+      ansible.builtin.shell: ./config.sh remove  --token {{ runner_token }}
+      args:
+        chdir: /home/ec2-user/actions-runner/
+      become_user: ec2-user
+      ignore_errors: yes
+
+
+    - name: set up configuration fo runner
+      ansible.builtin.shell: ./config.sh  --unattended  --url  https://github.com/ActionsRoboshop --name workstaion --labels chaitu1 --token {{ runner_token }}
+      args:
+        chdir: /home/ec2-user/actions-runner
+      become_user: ec2-user
+
+    - name: To start the runner service
+      ansible.builtin.shell: ./svc.sh install ; ./svc.sh start
+      args:
+         chdir: /home/ec2-user/actions-runner/
