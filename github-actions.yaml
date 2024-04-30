@@ -19,6 +19,11 @@
         name: libicu
         state: installed
 
+    - name: uninstall the service
+      ansible.builtin.shell: ./svc.sh uninstall
+      args:
+        chdir: /home/ec2-user/actions-runner
+
     - name: remove runner
       ansible.builtin.shell: ./config.sh remove
       args:
