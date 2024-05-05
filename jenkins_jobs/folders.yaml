@@ -4,7 +4,7 @@
      dest: /tmp/folder.xml
 
 - name: Create a jenkins job using basic authentication
-    community.general.jenkins_job:
+  community.general.jenkins_job:
       config: "{{ lookup('file', '/tmp/folder.xml') }}" # java -jar jenkins-cli.jar -auth  -s http://184.72.135.255:8080/ get-job test1
       name: "{{ item }}"
       password: "{{ jenkins_pass }}"
