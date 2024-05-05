@@ -4,7 +4,7 @@ BEGIN {
     printf("%-20s %s\n","=====","================")
 }
 {
-printf("%-20s %10s\n",$1,$7)
+printf("%-20s %100s\n",$1,$7)
 }
 END{
     printf("End of printing users & assigned shells")
