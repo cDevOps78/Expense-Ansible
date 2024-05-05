@@ -1,0 +1,7 @@
+- name: Jenkins Job Creation
+  hosts: localhost
+  tasks: 
+  - name: Task to Create folders
+    ansible.builtin.include_tasks: folders.yaml
+    loop: "{{ ['expneseCI', 'expenseCD' ]}}"
+  
