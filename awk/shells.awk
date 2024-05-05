@@ -1,6 +1,6 @@
 BEGIN {
     FS=":"
-    printf("%s\t%s\n","users","assigned-shell")
+    printf("%15s\t%s\n","users","assigned-shell")
 }
 {
 printf("%s\t%s\n",$1,$7)
