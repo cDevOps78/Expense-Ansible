@@ -1,0 +1,1 @@
+jq '.' file1.json

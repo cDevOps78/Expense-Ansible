@@ -19,9 +19,10 @@
         msg: "{{ ( names | to_yaml ) | map(attribute='movie') }}"
       vars:
         names:
+
+        
     
    
-
 
 
     
