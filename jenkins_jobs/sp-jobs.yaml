@@ -19,7 +19,7 @@
       config: "{{ lookup('template', 'sp-job.xml') }}" # java -jar jenkins-cli.jar -auth  -s http://184.72.135.255:8080/ get-job test1
       name: "{{ dir_name }}/{{ item.name }}"
       password: "{{ jenkins_pass }}"
-      url: http://184.72.135.255:8080
+      url: http://54.159.55.87:8080/
       user: chaitu1812
 
 
