@@ -1,0 +1,13 @@
+- name: To copy sp-job sp-job.xml 
+  ansible.builtin.template: 
+      src: sp-job.xml
+      dest: /tmp/sp-job.xml
+
+- name: To create sp-job in jenkins server
+  community.general.jenkins_job:
+      config: "{{ lookup('file', '/tmp/sp-job.xml') }}" # java -jar jenkins-cli.jar -auth  -s http://184.72.135.255:8080/ get-job test1
+      name: "{{ dir_name }}/{{ item }}"
+      password: "{{ jenkins_pass }}"
+      url: http://184.72.135.255:8080
+      user: chaitu1812
+      state: absent      

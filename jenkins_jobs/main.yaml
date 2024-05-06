@@ -3,5 +3,13 @@
   tasks: 
   - name: Task to Create folders
     ansible.builtin.include_tasks: folders.yaml
-    loop: "{{ ['expneseCI', 'expenseCD', 'RoboshopCI' ]}}"
+    loop:
+    - RoboshopCI
+    
+  - name: Calling include_taks file for sp-jobs
+    ansible.builtin.include_tasks: sp-jobs.yaml
+    vars: 
+      jobs_names: ['frontend','user','cart','payment']
+      dir_name: "RoboshopCI"
+    loop: "{{ jobs_names }}" 
   
