@@ -10,4 +10,4 @@
       password: "{{ jenkins_pass }}"
       url: http://184.72.135.255:8080
       user: chaitu1812
-      state: absent      
+          
