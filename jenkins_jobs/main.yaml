@@ -18,5 +18,5 @@
     - { name: 'payment' }
     - { name: 'catalogue' }
     - { name: 'dispatch' }
-    - { name: 'shippingg'}
+    - { name: 'shipping'}
   
