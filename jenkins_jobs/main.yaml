@@ -5,18 +5,19 @@
     ansible.builtin.include_tasks: folders.yaml
     loop:
     - RoboshopCI
+    - RoboshopCD
 
-  # - name: Calling include_taks file for sp-jobs
-  #   ansible.builtin.include_tasks: sp-jobs.yaml
-  #   vars: 
-  #     # jobs_names: ['frontend','user','cart','payment','catalogue','dispatch','shipping']
-  #     dir_name: "RoboshopCI"
-  #   loop: 
-  #   - { name: 'frontend' }
-  #   - { name: 'user' }
-  #   - { name: 'cart' }
-  #   - { name: 'payment' }
-  #   - { name: 'catalogue' }
-  #   - { name: 'dispatch' }
-  #   - { name: 'shipping'}
+  - name: Calling include_taks file for sp-jobs
+    ansible.builtin.include_tasks: sp-jobs.yaml
+    vars: 
+      # jobs_names: ['frontend','user','cart','payment','catalogue','dispatch','shipping']
+      dir_name: "RoboshopCI"
+    loop: 
+    - { name: 'frontend' }
+    - { name: 'user' }
+    - { name: 'cart' }
+    - { name: 'payment' }
+    - { name: 'catalogue' }
+    - { name: 'dispatch' }
+    - { name: 'shipping'}
   
