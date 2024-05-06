@@ -3,7 +3,7 @@
   tasks: 
   - name: loop of template
     ansible.builtin.debug: 
-       msg: "{{ lookup('template', 'file1') }}"
+       msg: "{{ lookup('file', 'file1') }}"
     loop: 
     - name1
     - name2
