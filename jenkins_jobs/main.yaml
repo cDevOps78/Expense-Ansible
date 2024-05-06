@@ -9,7 +9,7 @@
   - name: Calling include_taks file for sp-jobs
     ansible.builtin.include_tasks: sp-jobs.yaml
     vars: 
-      jobs_names: ['frontend','user','cart','payment','catalogue','dispatch','shippingggg']
+      jobs_names: ['frontend','user','cart','payment','catalogue','dispatch','shipping']
       dir_name: "RoboshopCI"
     loop: "{{ jobs_names }}" 
   
