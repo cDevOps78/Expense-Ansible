@@ -1,0 +1,9 @@
+name: Continuous Integration
+on:
+  push:
+jobs:
+  myjob:
+   runs-on: ubuntu-latest
+   steps:
+   - name: print env
+     run: env
